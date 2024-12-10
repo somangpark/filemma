@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>넷플릭스 영화 장르</title>
+    <style>
+        /* 기본 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 전체 페이지 스타일 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #141414;
+            color: #fff;
+        }
+
+        /* 헤더 스타일 */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: #141414;
+            z-index: 100;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #e50914;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Netflix 밑 빨간 줄 */
+        .divider {
+            height: 3px;
+            width: 90%;
+            margin: 0 auto;
+            background-color: #e50914;
+        }
+
+        /* 장르 버튼 스타일 */
+        .genre-buttons {
+            background-color: #141414;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .genre-buttons a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 8px;
+            padding: 8px 16px;
+            background-color: #e50914; /* 넷플릭스 빨간색 */
+            border-radius: 15px;
+            font-size: 0.9em; /* 크기 축소 */
+            transition: background-color 0.3s ease;
+        }
+
+        .genre-buttons a:hover {
+            background-color: #b20710; /* 어두운 빨간색 */
+        }
+
+        /* 장르 제목 스타일 */
+        h2 {
+            margin: 20px 0;
+            padding-left: 20px;
+            font-size: 1.8em;
+        }
+
+        /* 각 섹션 컨테이너 */
+        .genre-section {
+            margin-bottom: 50px;
+            scroll-margin-top: 80px; /* 스크롤 위치 조정 */
+        }
+
+        /* 영화 컨테이너 */
+        .movie-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px;
+            gap: 10px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: #e75b62 #141414; /* 스크롤 색상 */
+        }
+
+        .movie-container::-webkit-scrollbar {
+            height: 8px; /* 스크롤바 높이 */
+        }
+
+        .movie-container::-webkit-scrollbar-thumb {
+            background-color: #e50914; /* 스크롤바 색상 */
+            border-radius: 4px;
+        }
+
+        .movie-container::-webkit-scrollbar-track {
+            background-color: #141414; /* 트랙 색상 */
+        }
+
+        /* 각 영화 아이템 */
+        .movie {
+            width: 150px;
+            flex: none;
+            scroll-snap-align: start;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-align: center;
+        }
+
+        .movie:hover {
+            transform: scale(1.1);
+        }
+
+        .movie img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        /* 영화 제목 스타일 */
+        .movie-title {
+            margin-top: 8px;
+            font-size: 1em;
+            color: white;
+            text-decoration: none; /* 밑줄 제거 */
+        }
+
+        /* 링크 기본 밑줄 제거 */
+        .movie a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 -->
+    <div class="header">
+        <h1>Netflix</h1>
+        <div class="divider"></div> <!-- Netflix 밑 빨간 줄 -->
+        <br>
+        <div class="genre-buttons">
+            <a href="#romance">로맨스</a>
+            <a href="#action">액션</a>
+        </div>
+    </div>
+
+    <!-- 로맨스 섹션 -->
+    <div id="romance" class="genre-section">
+        <h2>로맨스 영화</h2>
+        <div class="movie-container">
+            <div class="movie">
+                <a href="movie1.html">
+                    <img src="프입 6조 코드_/포스터/로맨스/넷플릭스/그 여름의 일주일.jpg" alt="그 여름의 일주일">
+                    <div class="movie-title">그 여름의 일주일</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie2.html">
+                    <img src="프입 6조 코드_/포스터/로맨스/넷플릭스/라라랜드.jpg" alt="라라랜드">
+                    <div class="movie-title">라라랜드</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie3.html">
+                    <img src="프입 6조 코드_/포스터/로맨스/넷플릭스/나의 소녀시대.jpg" alt="나의 소녀시대">
+                    <div class="movie-title">나의 소녀시대</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie4.html">
+                    <img src="프입 6조 코드_/포스터/로맨스/넷플릭스/먼 훗날 우리.jpg" alt="먼 훗날 우리">
+                    <div class="movie-title">먼 훗날 우리</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie5.html">
+                    <img src="프입 6조 코드_/포스터/로맨스/넷플릭스/어바웃타임.jpg" alt="어바웃타임">
+                    <div class="movie-title">어바웃타임</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie6.html">
+                    <img src="프입 6조 코드_/포스터/로맨스/넷플릭스/이터널 선샤인1.jpg" alt="이터널 선샤인1">
+                    <div class="movie-title">이터널 선샤인1</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie7.html">
+                    <img src="프입 6조 코드_/포스터/로맨스/넷플릭스/유열의 음악앨범.jpg" alt="유열의 음악앨범">
+                    <div class="movie-title">유열의 음악앨범</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie8.html">
+                    <img src="프입 6조 코드_/포스터/로맨스/넷플릭스/트와일라잇.jpg" alt="트와일라잇">
+                    <div class="movie-title">트와일라잇</div>
+                </a>
+            </div>
+        </div>
+    </div>
+     <!-- 액션 섹션 -->
+     <div id="action" class="genre-section">
+        <h2>액션 영화</h2>
+        <div class="movie-container">
+            <div class="movie">
+                <a href="movie9.html">
+                    <img src="프입 6조 코드_/포스터/액션/넷플릭스/올드가드.jpg" alt="올드가드">
+                    <div class="movie-title">올드가드</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie10.html">
+                    <img src="프입 6조 코드_/포스터/액션/넷플릭스/그레이맨.jpg" alt="그레이맨">
+                    <div class="movie-title">그레이 맨</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie11.html">
+                    <img src="프입 6조 코드_/포스터/액션/넷플릭스/레드노티스.jpg" alt="레드노티스">
+                    <div class="movie-title">레드 노티스</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie12.html">
+                    <img src="프입 6조 코드_/포스터/액션/넷플릭스/무도실무관.jpg" alt="무도실무관">
+                    <div class="movie-title">무도실무관</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie13.html">
+                    <img src="프입 6조 코드_/포스터/액션/넷플릭스/발레리나.jpg" alt="발레리나">
+                    <div class="movie-title">발레리나</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie14.html">
+                    <img src="프입 6조 코드_/포스터/액션/넷플릭스/킹스맨.jpg" alt="킹스맨">
+                    <div class="movie-title">킹스맨</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie15.html">
+                    <img src="프입 6조 코드_/포스터/액션/넷플릭스/길복순.jpg" alt="길복순">
+                    <div class="movie-title">길복순</div>
+                </a>
+            </div>
+            <div class="movie">
+                <a href="movie16.html">
+                    <img src="프입 6조 코드_/포스터/액션/넷플릭스/범죄도시.jpg" alt="범죄도시">
+                    <div class="movie-title">범죄도시</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쿠팡플레이 영화 장르</title>
+    <style>
+      /* 기본 초기화 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* 전체 페이지 스타일 */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #0078ff;
+        color: #2d2c2c;
+      }
+
+      /* 헤더 스타일 */
+      .header {
+        position: sticky;
+        top: 0;
+        background-color: #0078ff;
+        z-index: 100;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .header h1 {
+        font-size: 3em;
+        color: #f2f4f5;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      /* 쿠플 밑 하얀 줄 */
+      .divider {
+        height: 3px;
+        width: 90%;
+        margin: 0 auto;
+        background-color: #f2f4f5;
+      }
+
+      /* 장르 버튼 스타일 */
+      .genre-buttons {
+        background-color: #0078ff;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .genre-buttons a {
+        text-decoration: none;
+        color: #2d2c2c;
+        margin: 0 8px;
+        padding: 8px 16px;
+        background-color: #f2f4f5; /* 쿠팡 파란색 */
+        border-radius: 15px;
+        font-size: 0.9em; /* 크기 축소 */
+        transition: background-color 0.3s ease;
+      }
+
+      .genre-buttons a:hover {
+        background-color: #b3cff9; /* 어두운 파란색 */
+      }
+
+      /* 장르 제목 스타일 */
+      h4 {
+        margin: 20px 0;
+        color: #f2f4f5;
+        padding-left: 20px;
+        font-size: 1.8em;
+      }
+
+      /* 각 섹션 컨테이너 */
+      .genre-section {
+        margin-bottom: 50px;
+        scroll-margin-top: 80px; /* 스크롤 위치 조정 */
+      }
+
+      /* 영화 컨테이너 */
+      .movie-container {
+        display: flex;
+        overflow-x: auto;
+        padding: 20px;
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: #f2f4f5 #1b5bc2; /* 스크롤 색상 */
+      }
+
+      .movie-container::-webkit-scrollbar {
+        height: 8px; /* 스크롤바 높이 */
+      }
+
+      .movie-container::-webkit-scrollbar-thumb {
+        background-color: #f2f4f5; /* 스크롤바 색상 */
+        border-radius: 4px;
+      }
+
+      .movie-container::-webkit-scrollbar-track {
+        background-color: #141414; /* 트랙 색상 */
+      }
+
+      /* 각 영화 아이템 */
+      .movie {
+        width: 150px;
+        flex: none;
+        scroll-snap-align: start;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.2s;
+        text-align: center;
+      }
+
+      .movie:hover {
+        transform: scale(1.1);
+      }
+
+      .movie img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      }
+
+      /* 영화 제목 스타일 */
+      .movie-title {
+        margin-top: 8px;
+        font-size: 1em;
+        color: white;
+        text-decoration: none; /* 밑줄 제거 */
+      }
+
+      /* 링크 기본 밑줄 제거 */
+      .movie a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <div class="header">
+      <h1>Coupang Play</h1>
+      <div class="divider"></div>
+      <!-- 쿠플 밑 하얀 줄 -->
+      <br />
+      <div class="genre-buttons">
+        <a href="#romance">로맨스</a>
+        <a href="#action">액션</a>
+        <a href="#comedy">코미디</a>
+        <a href="#horror/thriller">공포/스릴러</a>
+        <a href="#SF/fantasy">SF/판타지</a>
+        <a href="#animation">애니메이션</a>
+      </div>
+    </div>
+
+    <!-- 로맨스 섹션 -->
+    <div id="romance" class="genre-section">
+      <h4>로맨스 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="../teamproj/coupang_romance/레터스 투 줄리엣.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/쿠팡 플레이/건축학개론.jpg"
+              alt="레터스 투 줄리엣"
+            />
+            <div class="movie-title">레터스 투 줄리엣</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_romance/노트북.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/쿠팡 플레이/노트북.jpg"
+              alt="노트북"
+            />
+            <div class="movie-title">노트북</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_romance/노팅힐.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/쿠팡 플레이/노팅힐.jpg"
+              alt="노팅힐"
+            />
+            <div class="movie-title">노팅힐</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_romance/뷰티인사이드.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/쿠팡 플레이/뷰티인사이드.jpg"
+              alt="뷰티인사이드"
+            />
+            <div class="movie-title">뷰티인사이드</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_romance/비포 선 라이즈.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/쿠팡 플레이/비포 선라이즈.jpg"
+              alt="비포 선라이즈"
+            />
+            <div class="movie-title">비포 선라이즈</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_romance/스타이즈본.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/쿠팡 플레이/스타 이즈 본.jpg"
+              alt="스타 이즈 본"
+            />
+            <div class="movie-title">스타 이즈 본</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_romance/시간여행자의 아내.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/쿠팡 플레이/시간여행자의 아내.jpg"
+              alt="시간여행자의 아내"
+            />
+            <div class="movie-title">시간여행자의 아내</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_romance/이프 온리.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/쿠팡 플레이/이프 온리.jpg"
+              alt="이프 온리"
+            />
+            <div class="movie-title">이프 온리</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 액션 섹션 -->
+    <div id="action" class="genre-section">
+      <h4>액션 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="movie9.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/쿠팡/데드풀.jpg"
+              alt="데드풀"
+            />
+            <div class="movie-title">데드풀</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie10.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/쿠팡/기묘한 가족.png"
+              alt="기묘한 가족"
+            />
+            <div class="movie-title">기묘한 가족</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie11.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/쿠팡/내 남자친구의 결혼식.png"
+              alt="내 남자친구의 결혼식"
+            />
+            <div class="movie-title">내 남자친구의 결혼식</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie12.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/쿠팡/네버고백.png"
+              alt="네버고백"
+            />
+            <div class="movie-title">네버고백</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie13.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/쿠팡/매드맥스.png"
+              alt="매드맥스"
+            />
+            <div class="movie-title">매드맥스</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_action/1.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/쿠팡/분노의 질주.png"
+              alt="분노의 질주"
+            />
+            <div class="movie-title">분노의 질주</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie15.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/쿠팡/소년시절의 너.png"
+              alt="소년시절의 너"
+            />
+            <div class="movie-title">소년시절의 너</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_action/2.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/쿠팡/올드가드.jpg"
+              alt="범죄도시"
+            />
+            <div class="movie-title">올드가드</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 코미디 섹션 -->
+    <div id="comedy" class="genre-section">
+      <h4>코미디 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="../teamproj/coupang_comedy/2.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/쿠플/국제수사_쿠플.jpeg"
+              alt="국제수사"
+            />
+            <div class="movie-title">국제수사</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_comedy/5.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/쿠플/모가디슈_쿠플.jpeg"
+              alt="모가디슈"
+            />
+            <div class="movie-title">모가디슈</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_comedy/4.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/쿠플/범죄도시_쿠플.jpeg"
+              alt="범죄도시"
+            />
+            <div class="movie-title">범죄도시</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_comedy/1.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/쿠플/아이필프리티_쿠플.jpeg"
+              alt="아이필프리티"
+            />
+            <div class="movie-title">아이필프리티</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_comedy/6.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/쿠플/어쩌다 결혼_쿠플.jpeg"
+              alt="어쩌다 결혼"
+            />
+            <div class="movie-title">어쩌다 결혼</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_comedy/7.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/쿠플/언니_쿠플.jpeg"
+              alt="언니"
+            />
+            <div class="movie-title">언니</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_comedy/8.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/쿠플/육사오_쿠플.jpeg"
+              alt="육사오"
+            />
+            <div class="movie-title">육사오</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/coupang_comedy/3.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/쿠플/포레스트검프_쿠플.jpeg"
+              alt="포레스트검프"
+            />
+            <div class="movie-title">포레스트검프</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 공포/스릴러 섹션 -->
+    <div id="horror/thriller" class="genre-section">
+      <h4>공포/스릴러 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="Netflix_horror/movie25.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/쿠팡플레이/기담.jpg"
+              alt="기담"
+            />
+            <div class="movie-title">기담</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="Netflix_horror/movie26.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/쿠팡플레이/디센트.jpg"
+              alt="디센트"
+            />
+            <div class="movie-title">디센트</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="Netflix_horror/movie27.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/쿠팡플레이/리핑 10개의 재앙.jpg"
+              alt="리핑 10개의 재앙"
+            />
+            <div class="movie-title">리핑 10개의 재앙</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="Netflix_horror/movie28.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/쿠팡플레이/반교 디텐션.jpg"
+              alt="반교 디텐션"
+            />
+            <div class="movie-title">반교 디텐션</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie29.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/쿠팡플레이/서치.jpg"
+              alt="서치"
+            />
+            <div class="movie-title">서치</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie30.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/쿠팡플레이/이블 데드 라이즈.jpg"
+              alt="이블 데드 라이즈"
+            />
+            <div class="movie-title">이블 데드 라이즈</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie31.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/쿠팡플레이/이웃사람.jpg"
+              alt="이웃사람"
+            />
+            <div class="movie-title">이웃사람</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie32.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/쿠팡플레이/지푸라기라도 잡고 싶은 짐승들.jpg"
+              alt="지푸라기라도 잡고 싶은 짐승들"
+            />
+            <div class="movie-title">지푸라기라도 잡고 싶은 짐승들</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SF/판타지 섹션 -->
+    <div id="SF/fantasy" class="genre-section">
+      <h4>SF/판타지 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="movie33.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/쿠팡플레이/쿠플 SF 디스트릭트9.jpeg"
+              alt="디스트릭트9"
+            />
+            <div class="movie-title">디스트릭트9</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie34.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/쿠팡플레이/쿠플 SF 마녀.jpeg"
+              alt="마녀"
+            />
+            <div class="movie-title">마녀</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie35.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/쿠팡플레이/쿠플 SF 베놈.jpeg"
+              alt="베놈"
+            />
+            <div class="movie-title">베놈</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie36.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/쿠팡플레이/쿠플 SF 오펜하이머.jpeg"
+              alt="오펜하이머"
+            />
+            <div class="movie-title">오펜하이머</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie37.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/쿠팡플레이/쿠플 SF 웡카.jpeg"
+              alt="웡카"
+            />
+            <div class="movie-title">웡카</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie38.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/쿠팡플레이/쿠플 SF 인셉션.jpeg"
+              alt="인셉션"
+            />
+            <div class="movie-title">인셉션</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie39.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/쿠팡플레이/쿠플 SF 인터스텔라.jpeg"
+              alt="인터스텔라"
+            />
+            <div class="movie-title">인터스텔라</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie40.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/쿠팡플레이/쿠플 SF 콘스탄틴.jpeg"
+              alt="콘스탄틴"
+            />
+            <div class="movie-title">콘스탄틴</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 애니메이션 섹션 -->
+    <div id="animation" class="genre-section">
+      <h4>애니메이션 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="movie41.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/쿠팡플레이/쿠플 애니 날씨의 아이.jpeg"
+              alt="날씨의 아이"
+            />
+            <div class="movie-title">날씨의 아이</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie42.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/쿠팡플레이/쿠플 애니 더 퍼스트 슬램더으.jpg"
+              alt="더 퍼스트 슬램덩크"
+            />
+            <div class="movie-title">더 퍼스트 슬램덩크</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie43.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/쿠팡플레이/쿠플 애니 로봇 드림.jpeg"
+              alt="로봇 드림"
+            />
+            <div class="movie-title">로봇 드림</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie44.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/쿠팡플레이/쿠플 애니 마다가스카1.jpeg"
+              alt="마다가스카1"
+            />
+            <div class="movie-title">마다가스카1</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie45.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/쿠팡플레이/쿠플 애니 스즈메의 문단속.jpeg"
+              alt="스즈메의 문단속"
+            />
+            <div class="movie-title">스즈메의 문단속</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie46.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/쿠팡플레이/쿠플 애니 씽 1.jpeg"
+              alt="씽 1"
+            />
+            <div class="movie-title">씽 1</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie47.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/쿠팡플레이/쿠플 애니 장화 신은 고양이 1.jpeg"
+              alt="장화 신은 고양이 1"
+            />
+            <div class="movie-title">장화 신은 고양이 1</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie48.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/쿠팡플레이/쿠플 애니 하늘에서 음식이 내린다면 1.jpeg"
+              alt="하늘에서 음식이 내린다면 1"
+            />
+            <div class="movie-title">하늘에서 음식이 내린다면 1</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

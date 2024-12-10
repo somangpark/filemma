@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>디즈니플러스 영화 장르</title>
+    <style>
+      /* 기본 초기화 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* 전체 페이지 스타일 */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #0a1d48;
+        color: #fff;
+      }
+
+      /* 헤더 스타일 */
+      .header {
+        position: sticky;
+        top: 0;
+        background-color: #0a1d48;
+        z-index: 100;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .header h1 {
+        font-size: 3em;
+        color: #fefefe;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      /* 디즈니 밑 파랑 줄 */
+      .divider {
+        height: 3px;
+        width: 90%;
+        margin: 0 auto;
+        background-color: #113ccf;
+      }
+
+      /* 장르 버튼 스타일 */
+      .genre-buttons {
+        background-color: #0a1d48;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .genre-buttons a {
+        text-decoration: none;
+        color: #fff;
+        margin: 0 8px;
+        padding: 8px 16px;
+        background-color: #113ccf; /* 디즈니 파랑 */
+        border-radius: 15px;
+        font-size: 0.9em; /* 크기 축소 */
+        transition: background-color 0.3s ease;
+      }
+
+      .genre-buttons a:hover {
+        background-color: #0d2c94; /* 어두운 파란색 */
+      }
+
+      /* 장르 제목 스타일 */
+      h4 {
+        margin: 20px 0;
+        padding-left: 20px;
+        font-size: 1.8em;
+      }
+
+      /* 각 섹션 컨테이너 */
+      .genre-section {
+        margin-bottom: 50px;
+        scroll-margin-top: 80px; /* 스크롤 위치 조정 */
+      }
+
+      /* 영화 컨테이너 */
+      .movie-container {
+        display: flex;
+        overflow-x: auto;
+        padding: 20px;
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: #68ccf0 #141414; /* 스크롤 색상 */
+      }
+
+      .movie-container::-webkit-scrollbar {
+        height: 8px; /* 스크롤바 높이 */
+      }
+
+      .movie-container::-webkit-scrollbar-thumb {
+        background-color: #68ccf0; /* 스크롤바 색상 */
+        border-radius: 4px;
+      }
+
+      .movie-container::-webkit-scrollbar-track {
+        background-color: #141414; /* 트랙 색상 */
+      }
+
+      /* 각 영화 아이템 */
+      .movie {
+        width: 150px;
+        flex: none;
+        scroll-snap-align: start;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.2s;
+        text-align: center;
+      }
+
+      .movie:hover {
+        transform: scale(1.1);
+      }
+
+      .movie img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      }
+
+      /* 영화 제목 스타일 */
+      .movie-title {
+        margin-top: 8px;
+        font-size: 1em;
+        color: white;
+        text-decoration: none; /* 밑줄 제거 */
+      }
+
+      /* 링크 기본 밑줄 제거 */
+      .movie a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <div class="header">
+      <h1>Disney Plus</h1>
+      <div class="divider"></div>
+      <!-- Netflix 밑 빨간 줄 -->
+      <br />
+      <div class="genre-buttons">
+        <a href="#romance">로맨스</a>
+        <a href="#action">액션</a>
+        <a href="#comedy">코미디</a>
+        <a href="#horror/thriller">공포/스릴러</a>
+        <a href="#SF/fantasy">SF/판타지</a>
+        <a href="#animation">애니메이션</a>
+      </div>
+    </div>
+
+    <!-- 로맨스 섹션 -->
+    <div id="romance" class="genre-section">
+      <h4>로맨스 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="../teamproj/disney_romance/500일의 썸머.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/디즈니플러스/500일의 썸머.jpg"
+              alt="500일의 썸머"
+            />
+            <div class="movie-title">500일의 썸머</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_romance/내겐 너무 가벼운 그녀.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/디즈니플러스/내겐 너무 가벼운 그녀.jpg"
+              alt="내겐 너무 가벼운 그녀"
+            />
+            <div class="movie-title">내겐 너무 가벼운 그녀</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_romance/당신이 잠든 사이에.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/디즈니플러스/당신이 잠든 사이에.jpg"
+              alt="당신이 잠든 사이에"
+            />
+            <div class="movie-title">당신이 잠든 사이에</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_romance/마법에 걸린 사랑.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/디즈니플러스/마법에 걸린 사랑.jpg"
+              alt="마법에 걸린 사랑"
+            />
+            <div class="movie-title">마법에 걸린 사랑</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_romance/미녀와 야수.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/디즈니플러스/미녀와 야수.jpg"
+              alt="미녀와 야수"
+            />
+            <div class="movie-title">미녀와 야수</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_romance/셰이프 오브 워터.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/디즈니플러스/셰이프 오브 워터.jpg"
+              alt="셰이프 오브 워터"
+            />
+            <div class="movie-title">셰이프 오브 워터</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_romance/안녕,헤이즐.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/디즈니플러스/안녕, 헤이즐.jpg"
+              alt="안녕, 헤이즐"
+            />
+            <div class="movie-title">안녕, 헤이즐</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_romance/타이타닉.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/디즈니플러스/타이타닉.jpg"
+              alt="타이타닉"
+            />
+            <div class="movie-title">타이타닉</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 액션 섹션 -->
+    <div id="action" class="genre-section">
+      <h4>액션 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="movie9.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/디즈니플러스/모비우스.jpg"
+              alt="모비우스"
+            />
+            <div class="movie-title">모비우스</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie10.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/디즈니플러스/블랙_위도우_포스터.jpg"
+              alt="블랙 위도우"
+            />
+            <div class="movie-title">블랙 위도우</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie11.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/디즈니플러스/샹치와_텐_링즈의_전설_포스터.jpg"
+              alt="샹치와 텐 링즈의 전설"
+            />
+            <div class="movie-title">샹치와 텐 링즈의 전설</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie12.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/디즈니플러스/스타워즈_.jpg"
+              alt="스타워즈"
+            />
+            <div class="movie-title">스타워즈</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie13.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/디즈니플러스/아이언맨.webp"
+              alt="아이언맨"
+            />
+            <div class="movie-title">아이언맨</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie14.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/디즈니플러스/이터널스.jpg"
+              alt="이터널스"
+            />
+            <div class="movie-title">이터널스</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie15.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/디즈니플러스/토르.webp"
+              alt="토르"
+            />
+            <div class="movie-title">토르</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie16.html">
+            <img src="프입 6조 코드_/포스터/액션/디즈니플러스/레드노티스.jpg"
+            alt="레드노티스 />
+            <div class="movie-title">레드노티스</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 코미디 섹션 -->
+    <div id="comedy" class="genre-section">
+      <h4>코미디 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="../teamproj/disney_comedy/6.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/디플/rodrick rules_디플.jpeg"
+              alt="윔피키드 다이어리"
+            />
+            <div class="movie-title">윔피키드 다이어리</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_comedy/7.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/디플/Turning_Red_디플.jpg"
+              alt="메이의 새빨간 비밀"
+            />
+            <div class="movie-title">메이의 새빨간 비밀</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_comedy/5.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/디플/더 머펫_디플.jpeg"
+              alt="머펫 대소동 1"
+            />
+            <div class="movie-title">머펫 대소동 1</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_comedy/4.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/디플/소울_디플.jpeg"
+              alt="소울"
+            />
+            <div class="movie-title">소울</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_comedy/3.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/디플/정글크루즈_디플.jpeg"
+              alt="정글크루즈"
+            />
+            <div class="movie-title">정글크루즈</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_comedy/8.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/디플/주토피아_디플.jpeg"
+              alt="주토피아"
+            />
+            <div class="movie-title">주토피아</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_comedy/1.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/디플/프리가이_디플.jpeg"
+              alt="프리가이"
+            />
+            <div class="movie-title">프리가이</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/disney_comedy/2.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/디플/프린세스다이어리_디플.jpeg"
+              alt="프린세스 다이어리"
+            />
+            <div class="movie-title">프린세스 다이어리</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 공포/스릴러 섹션 -->
+    <div id="horror/thriller" class="genre-section">
+      <h4>공포/스릴러 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="Netflix_horror/movie25.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/디즈니플러스/28주 후.jpg"
+              alt="28주 후"
+            />
+            <div class="movie-title">28주 후</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="Netflix_horror/movie26.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/디즈니플러스/곡성.jpg"
+              alt="곡성"
+            />
+            <div class="movie-title">곡성</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="Netflix_horror/movie27.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/디즈니플러스/더 메뉴.jpg"
+              alt="더 메뉴"
+            />
+            <div class="movie-title">더 메뉴</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="Netflix_horror/movie28.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/디즈니플러스/매트리악.jpg"
+              alt="매트리악"
+            />
+            <div class="movie-title">매트리악</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie29.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/디즈니플러스/미러.jpg"
+              alt="미러"
+            />
+            <div class="movie-title">미러</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie30.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/디즈니플러스/부기맨.jpg"
+              alt="부기맨"
+            />
+            <div class="movie-title">부기맨</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie31.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/디즈니플러스/오멘.jpg"
+              alt="오멘"
+            />
+            <div class="movie-title">오멘</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie32.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/디즈니플러스/지구가 멈추는 날.jpg"
+              alt="지구가 멈추는 날"
+            />
+            <div class="movie-title">지구가 멈추는 날</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SF/판타지 섹션 -->
+    <div id="SF/fantasy" class="genre-section">
+      <h4>SF/판타지 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="movie33.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/디즈니플러스/디플 SF 마션.jpeg"
+              alt="마션"
+            />
+            <div class="movie-title">마션</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie34.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/디즈니플러스/디플 SF 미스 페레그린과 이상한 아이들의 집.jpeg"
+              alt="미스 페레그린과 이상한 아이들의 집"
+            />
+            <div class="movie-title">미스 페레그린과 이상한 아이들의 집</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie35.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/디즈니플러스/디플 SF 셰이프 오브 워터.jpeg"
+              alt="셰이프 오브 워터"
+            />
+            <div class="movie-title">셰이프 오브 워터</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie36.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/디즈니플러스/디플 SF 스타쉽 트루퍼스.jpeg"
+              alt="스타쉽 트루퍼스"
+            />
+            <div class="movie-title">스타쉽 트루퍼스</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie37.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/디즈니플러스/디플 SF 스타워즈-새로운 희망.jpeg"
+              alt="스타워즈-새로운 희망"
+            />
+            <div class="movie-title">스타워즈-새로운 희망</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie38.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/디즈니플러스/디플 SF 윌터의 상상은 현실이 된다.jpeg"
+              alt="윌터의 상상은 현실이 된다"
+            />
+            <div class="movie-title">윌터의 상상은 현실이 된다</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie39.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/디즈니플러스/디플 SF 이상한 나라의 앨리스.jpeg"
+              alt="이상한 나라의 앨리스"
+            />
+            <div class="movie-title">이상한 나라의 앨리스</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie40.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/디즈니플러스/디플 SF 트톼일라잇.jpeg"
+              alt="트와일라잇"
+            />
+            <div class="movie-title">트와일라잇</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 애니메이션 섹션 -->
+    <div id="animation" class="genre-section">
+      <h4>애니메이션 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="movie41.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/디즈니플러스/디플 애니 라따뚜이.jpeg"
+              alt="라따뚜이"
+            />
+            <div class="movie-title">라따뚜이</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie42.html">
+            <img src="프입 6조 코드_/포스터/애니메이션/디즈니플러스/디플 애니
+            빅히어로.jpeg" alt="빅히어로 />
+            <div class="movie-title">빅히어로</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie43.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/디즈니플러스/디플 애니 소울.jpeg"
+              alt="소울"
+            />
+            <div class="movie-title">소울</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie44.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/디즈니플러스/디플 애니 업.jpeg"
+              alt="업"
+            />
+            <div class="movie-title">업</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie45.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/디즈니플러스/디플 애니 엘리멘탈.jpeg"
+              alt="엘리멘탈"
+            />
+            <div class="movie-title">엘리멘탈</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie46.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/디즈니플러스/디플 애니 인사이드 아웃2.jpeg"
+              alt="인사이드 아웃 2"
+            />
+            <div class="movie-title">인사이드 아웃 2</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie47.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/디즈니플러스/디플 애니 코코.jpeg"
+              alt="코코"
+            />
+            <div class="movie-title">코코</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie48.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/디즈니플러스/디플 애니 토이스토리1.jpeg"
+              alt="토이스토리 1"
+            />
+            <div class="movie-title">토이스토리 1</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

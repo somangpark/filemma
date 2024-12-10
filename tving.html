@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>티빙 영화 장르</title>
+    <style>
+      /* 기본 초기화 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* 전체 페이지 스타일 */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #141414;
+        color: #fff;
+      }
+
+      /* 헤더 스타일 */
+      .header {
+        position: sticky;
+        top: 0;
+        background-color: #141414;
+        z-index: 100;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .header h1 {
+        font-size: 3em;
+        color: #ff004e;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      /* 티빙 밑 빨간 줄 */
+      .divider {
+        height: 3px;
+        width: 90%;
+        margin: 0 auto;
+        background-color: #ff004e;
+      }
+
+      /* 장르 버튼 스타일 */
+      .genre-buttons {
+        background-color: #141414;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .genre-buttons a {
+        text-decoration: none;
+        color: #fff;
+        margin: 0 8px;
+        padding: 8px 16px;
+        background-color: #ff004e; /* 넷플릭스 빨간색 */
+        border-radius: 15px;
+        font-size: 0.9em; /* 크기 축소 */
+        transition: background-color 0.3s ease;
+      }
+
+      .genre-buttons a:hover {
+        background-color: #c60e45; /* 어두운 빨간색 */
+      }
+
+      /* 장르 제목 스타일 */
+      h4 {
+        margin: 20px 0;
+        padding-left: 20px;
+        font-size: 1.8em;
+      }
+
+      /* 각 섹션 컨테이너 */
+      .genre-section {
+        margin-bottom: 50px;
+        scroll-margin-top: 80px; /* 스크롤 위치 조정 */
+      }
+
+      /* 영화 컨테이너 */
+      .movie-container {
+        display: flex;
+        overflow-x: auto;
+        padding: 20px;
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: #fc2565 #141414; /* 스크롤 색상 */
+      }
+
+      .movie-container::-webkit-scrollbar {
+        height: 8px; /* 스크롤바 높이 */
+      }
+
+      .movie-container::-webkit-scrollbar-thumb {
+        background-color: #fc2565; /* 스크롤바 색상 */
+        border-radius: 4px;
+      }
+
+      .movie-container::-webkit-scrollbar-track {
+        background-color: #141414; /* 트랙 색상 */
+      }
+
+      /* 각 영화 아이템 */
+      .movie {
+        width: 150px;
+        flex: none;
+        scroll-snap-align: start;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.2s;
+        text-align: center;
+      }
+
+      .movie:hover {
+        transform: scale(1.1);
+      }
+
+      .movie img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      }
+
+      /* 영화 제목 스타일 */
+      .movie-title {
+        margin-top: 8px;
+        font-size: 1em;
+        color: white;
+        text-decoration: none; /* 밑줄 제거 */
+      }
+
+      /* 링크 기본 밑줄 제거 */
+      .movie a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <div class="header">
+      <h1>Tving</h1>
+      <div class="divider"></div>
+      <!-- Netflix 밑 빨간 줄 -->
+      <br />
+      <div class="genre-buttons">
+        <a href="#romance">로맨스</a>
+        <a href="#action">액션</a>
+        <a href="#comedy">코미디</a>
+        <a href="#horror/thriller">공포/스릴러</a>
+        <a href="#SF/fantasy">SF/판타지</a>
+        <a href="#animation">애니메이션</a>
+      </div>
+    </div>
+
+    <!-- 로맨스 섹션 -->
+    <div id="romance" class="genre-section">
+      <h4>로맨스 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="movie1.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/티빙/어느날.jpg"
+              alt="어느날"
+            />
+            <div class="movie-title">어느날</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie2.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/티빙/연애 빠진 로맨스.jpg"
+              alt="연애 빠진 로맨스"
+            />
+            <div class="movie-title">연애 빠진 로맨스</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie3.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/티빙/오늘의 연애.jpg"
+              alt="오늘의 연애"
+            />
+            <div class="movie-title">오늘의 연애</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie4.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/티빙/카페 6.jpg"
+              alt="카페"
+            />
+            <div class="movie-title">카페</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie5.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/티빙/클래식.jpg"
+              alt="클래식"
+            />
+            <div class="movie-title">클래식</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie6.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/티빙/헤어질 결심.jpg"
+              alt="헤어질 결심"
+            />
+            <div class="movie-title">헤어질 결심</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie7.html">
+            <img
+              src="프입 6조 코드_/포스터/로맨스/티빙/히로인 실격.jpg"
+              alt="히로인 실격"
+            />
+            <div class="movie-title">히로인 실격</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie8.html">
+            <img src="프입 6조 코드_/포스터/로맨스/티빙/" alt="트와일라잇" />
+            <div class="movie-title">로맨스 티빙 하나 부족</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 액션 섹션 -->
+    <div id="action" class="genre-section">
+      <h4>액션 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="movie9.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/티빙/강철비.jpg"
+              alt="강철비"
+            />
+            <div class="movie-title">강철비</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie10.html">
+            <img src="프입 6조 코드_/포스터/액션/티빙/도굴.jpg" alt="도굴" />
+            <div class="movie-title">도굴</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie11.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/티빙/백드롭 파파.jpg"
+              alt="백드롭 파파"
+            />
+            <div class="movie-title">백드롭 파파</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie12.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/티빙/범죄도시 2.jpg"
+              alt="범죄도시 2"
+            />
+            <div class="movie-title">범죄도시 2</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie13.html">
+            <img src="프입 6조 코드_/포스터/액션/티빙/신세계.jpg alt="신세계" />
+            <div class="movie-title">신세계</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie14.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/티빙/아수라.jpg"
+              alt="아수라"
+            />
+            <div class="movie-title">아수라</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie15.html">
+            <img
+              src="프입 6조 코드_/포스터/액션/티빙/히트맨.jpg"
+              alt="히트맨"
+            />
+            <div class="movie-title">히트맨</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie16.html">
+            <img src="프입 6조 코드_/포스터/액션/티빙/타자.jpg" alt="타자" />
+            <div class="movie-title">타자</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 코미디 섹션 -->
+    <div id="comedy" class="genre-section">
+      <h4>코미디 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="../teamproj/tving_comedy/3.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/티빙/그것만이 내 세상_티빙.jpeg"
+              alt="그것만이 내 세상"
+            />
+            <div class="movie-title">그것만이 내 세상</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/tving_comedy/2.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/티빙/극한직업_티빙.jpeg"
+              alt="극한직업"
+            />
+            <div class="movie-title">극한직업</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/tving_comedy/6.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/티빙/미션 파서블_티빙.jpeg"
+              alt="미션 파서블"
+            />
+            <div class="movie-title">미션 파서블</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/tving_comedy/4.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/티빙/삼진_티빙.jpeg"
+              alt="삼진그룹 영어토익반"
+            />
+            <div class="movie-title">삼진그룹 영어토익반/div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/tving_comedy/7.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/티빙/수상한 그녀_티빙.jpeg"
+              alt="수상한 그녀"
+            />
+            <div class="movie-title">수상한 그녀</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/tving_comedy/1.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/티빙/신과 함께_티빙.jpeg"
+              alt="신과 함께"
+            />
+            <div class="movie-title">신과 함께</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/tving_comedy/8.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/티빙/웰컴 투 동막골_티빙.jpeg"
+              alt="웰컴 투 동막골"
+            />
+            <div class="movie-title">웰컴 투 동막골</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="../teamproj/tving_comedy/5.html">
+            <img
+              src="프입 6조 코드_/포스터/코미디/티빙/전우치_티빙.jpeg"
+              alt="전우치"
+            />
+            <div class="movie-title">전우치</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 공포/스릴러 섹션 -->
+    <div id="horror/thriller" class="genre-section">
+      <h4>공포/스릴러 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="Netflix_horror/movie25.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/티빙/드래그 미 투 헬.jpg"
+              alt="드래그 미 투 헬"
+            />
+            <div class="movie-title">드래그 미 투 헬</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="Netflix_horror/movie26.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/티빙/빌로우 적과의 동거.jpg"
+              alt="빌로우 적과의 동거"
+            />
+            <div class="movie-title">빌로우 적과의 동거</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="Netflix_horror/movie27.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/티빙/사일런스.jpg"
+              alt="사일런스"
+            />
+            <div class="movie-title">사일런스</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="Netflix_horror/movie28.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/티빙/살인의 추억.jpg"
+              alt="살인의 추억"
+            />
+            <div class="movie-title">살인의 추억</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie29.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/티빙/소스 코드.jpg"
+              alt="소스 코드"
+            />
+            <div class="movie-title">소스 코드</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie30.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/티빙/언힌지드.jpg"
+              alt="언힌지드
+            />
+            <div class="movie-title">언힌지드/div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie31.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/티빙/장화,홍련.jpg"
+              alt="장화,홍련"
+            />
+            <div class="movie-title">장화, 홍련</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie32.html">
+            <img
+              src="프입 6조 코드_/포스터/공포스릴러_/티빙/클로브히치 킬러.jpg"
+              alt="클로브히치 킬러"
+            />
+            <div class="movie-title">클로브히치 킬러</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SF/판타지 섹션 -->
+    <div id="SF/fantasy" class="genre-section">
+      <h4>SF/판타지 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="movie33.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/티빙/티빙 SF 나는 내일, 어제의 너와 만난다.jpeg"
+              alt="나는 내일, 어제의 너와 만난다"
+            />
+            <div class="movie-title">나는 내일, 어제의 너와 만난다</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie34.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/티빙/티빙 SF 당신, 거기 있어줄래요.jpeg"
+              alt="당신, 거기 있어줄래요"
+            />
+            <div class="movie-title">당신, 거기 있어줄래요</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie35.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/티빙/티빙 SF 미드나잇 인 파리.jpeg"
+              alt="미드나잇 인 파리"
+            />
+            <div class="movie-title">미드나잇 인 파리</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie36.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/티빙/티빙 SF 신과 함께-죄와 벌.jpeg"
+              alt="신과 함께-죄와 벌"
+            />
+            <div class="movie-title">신과 함께-죄와 벌</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie37.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/티빙/티빙 SF 비바리움.jpeg"
+              alt="비바리움"
+            />
+            <div class="movie-title">비바리움</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie38.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/티빙/티빙 SF 원더랜드.jpeg"
+              alt="원더랜드"
+            />
+            <div class="movie-title">원더랜드</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie39.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/티빙/티빙 SF 판의 미로 오필리아와 세 개의 열쇠.jpeg"
+              alt="판의 미로 오필리아와 세 개의 열쇠"
+            />
+            <div class="movie-title">판의 미로 오필리아와 세 개의 열쇠</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie40.html">
+            <img
+              src="프입 6조 코드_/포스터/SF판타지/티빙/티빙 SF 패딩턴.jpeg"
+              alt="패딩턴"
+            />
+            <div class="movie-title">패딩턴</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 애니메이션 섹션 -->
+    <div id="animation" class="genre-section">
+      <h4>애니메이션 영화</h4>
+      <div class="movie-container">
+        <div class="movie">
+          <a href="movie41.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/티빙/티빙 애니 거울 속 외딴 성.jpeg"
+              alt="거울 속 외딴 성"
+            />
+            <div class="movie-title">거울 속 외딴 성</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie42.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/티빙/티빙 애니 괴물의 아이.jpeg"
+              alt="괴물의 아이"
+            />
+            <div class="movie-title">괴물의 아이</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie43.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/티빙/티빙 애니 너의 이름은.jpg"
+              alt="너의 이름은"
+            />
+            <div class="movie-title">너의 이름은</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie44.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/티빙/티빙 애니 마당을 나온 암탉.jpeg"
+              alt="마당을 나온 암탉"
+            />
+            <div class="movie-title">마당을 나온 암탉</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie45.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/티빙/티빙 애니 목소리의 형태.jpeg"
+              alt="목소리의 형태"
+            />
+            <div class="movie-title">목소리의 형태</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie46.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/티빙/티빙 애니 시간을 달리는 소녀.jpeg"
+              alt="시간을 달리는 소녀"
+            />
+            <div class="movie-title">시간을 달리는 소녀</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie47.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/티빙/티빙 애니 언어의 정원.jpeg"
+              alt="언어의 정원"
+            />
+            <div class="movie-title">언어의 정원</div>
+          </a>
+        </div>
+        <div class="movie">
+          <a href="movie48.html">
+            <img
+              src="프입 6조 코드_/포스터/애니메이션/티빙/티빙 애니 하울의 움직이는 성.jpeg"
+              alt="하울의 움직이는 성"
+            />
+            <div class="movie-title">하울의 움직이는 성</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

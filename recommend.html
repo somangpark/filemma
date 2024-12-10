@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 영화 추천</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141414; /* 검정 배경 */
+            color: #fff; /* 하얀색 텍스트 */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 컨테이너 스타일 */
+        .container {
+            background-color: #1f1f1f; /* 어두운 배경 */
+            max-width: 600px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        /* 제목 */
+        h1 {
+            color: #ffffff; /* 빨간색 */
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* 장르 선택 버튼 */
+        .genre-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .genre-buttons button {
+            background-color: #e50914; /* 빨간색 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 1em;
+            margin: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 30%; /* 가로 3개씩 배치되도록 */
+        }
+
+        .genre-buttons button.selected {
+            background-color: #860007; /* 선택된 버튼은 어두운 빨간색 */
+        }
+
+        .genre-buttons button:hover {
+            background-color: #860007; /* 어두운 빨간색 */
+        }
+
+        /* 추천 버튼 스타일 */
+        button.recommend-btn {
+            background-color: #ffb800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px; 
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button.recommend-btn:hover {
+            background-color: #c5a215;
+        }
+
+        /* 추천 결과 */
+        #recommendation {
+            margin-top: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>오늘의 영화 추천</h1>
+
+        <!-- 장르 선택 버튼 -->
+        <div class="genre-buttons">
+            <button onclick="toggleGenre('로맨스')">로맨스</button>
+            <button onclick="toggleGenre('공포/스릴러')">공포/스릴러</button>
+            <button onclick="toggleGenre('액션')">액션</button>
+            <button onclick="toggleGenre('SF/판타지')">SF/판타지</button>
+            <button onclick="toggleGenre('코미디')">코미디</button>
+            <button onclick="toggleGenre('애니메이션')">애니메이션</button>
+        </div>
+
+        <button class="recommend-btn" onclick="recommendMovie()">추천 영화 보기</button>
+
+        <p id="recommendation">추천 받고 싶은 장르를 선택하고 버튼을 클릭하세요!</p>
+    </div>
+
+    <script>
+        // 각 장르에 속하는 영화 목록
+        const movies = {
+            "로맨스": ["About Time", "La La Land", "The Notebook"],
+            "공포/스릴러": ["Get Out", "A Quiet Place", "The Conjuring"],
+            "액션": ["Mad Max: Fury Road", "John Wick", "Gladiator"],
+            "SF/판타지": ["Inception", "The Matrix", "Lord of the Rings"],
+            "코미디": ["Superbad", "Step Brothers", "The Grand Budapest Hotel"],
+            "애니메이션": ["Toy Story", "Spirited Away", "How to Train Your Dragon"]
+        };
+
+        // 선택된 장르를 저장할 배열
+        let selectedGenres = [];
+
+        // 장르 선택/취소 함수
+        function toggleGenre(genre) {
+            const button = event.target;
+            if (selectedGenres.includes(genre)) {
+                // 선택 해제
+                selectedGenres = selectedGenres.filter(item => item !== genre);
+                button.classList.remove("selected");
+            } else {
+                // 새로 선택
+                selectedGenres.push(genre);
+                button.classList.add("selected");
+            }
+            console.log("선택된 장르:", selectedGenres); // 디버깅용
+        }
+
+        // 영화 추천 함수
+        function recommendMovie() {
+            if (selectedGenres.length > 0) {
+                // 선택된 장르에 맞는 영화들만 모아서 리스트 생성
+                let moviePool = [];
+                selectedGenres.forEach(genre => {
+                    if (movies[genre]) {
+                        // 영화 이름과 장르를 함께 객체로 추가
+                        movies[genre].forEach(movie => {
+                            moviePool.push({ genre: genre, name: movie });
+                        });
+                    }
+                });
+
+                if (moviePool.length > 0) {
+                    const randomMovie = moviePool[Math.floor(Math.random() * moviePool.length)];
+                    document.getElementById('recommendation').innerText = 
+                        `오늘의 영화: ${randomMovie.genre} 장르의 '${randomMovie.name}'입니다.`;
+                } else {
+                    document.getElementById('recommendation').innerText = "선택한 장르에 해당하는 영화가 없습니다.";
+                }
+            } else {
+                document.getElementById('recommendation').innerText = "장르를 선택해주세요.";
+            }
+        }
+    </script>
+
+</body>
+</html>

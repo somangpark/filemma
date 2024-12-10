@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filemma</title>
+    <style>
+        /* 기본 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1c1c1c; /* 어두운 배경 */
+            color: #fff; /* 글자 색을 흰색으로 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #ff6f61; /* 텍스트 색상은 오렌지로 강조 */
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 1.5em;
+            color: #bbb; /* 부드러운 회색 */
+            font-weight: 300;
+        }
+
+        .platform-links {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .row {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .platform-links a img {
+            width: 120px;
+            height: auto;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 이미지에 그림자 추가 */
+        }
+
+        .platform-links a img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* 호버 시 더 강한 그림자 */
+        }
+
+        .back-btn {
+            background-color: #ff6f61; /* 버튼 배경 오렌지 */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #e65c54; /* 버튼 호버 시 어두운 오렌지로 변경 */
+        }
+
+        footer {
+            text-align: center;
+            background-color: #343a40; /* 어두운 회색 배경 */
+            color: #fff;
+            width: 100%;
+            padding: 20px 0;
+            margin-top: 50px;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Filemma</h1>
+    </header>
+
+    <section class="platform-links">
+        <div class="row">
+            <a href="netflix.html">
+                <img src="로고1.png" alt="넷플릭스 로고">
+            </a>
+            <a href="disney.html">
+                <img src="로고2.png" alt="디즈니 플러스 로고">
+            </a>
+        </div>
+        <div class="row">
+            <a href="tving.html">
+                <img src="로고3.jpeg" alt="티빙 로고">
+            </a>
+            <a href="coupang.html">
+                <img src="로고4.jpeg" alt="쿠팡 플레이 로고">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Filemma</p>
+    </footer>
+</body>
+</html>
+
+
